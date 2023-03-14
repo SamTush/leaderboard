@@ -14,7 +14,7 @@ export function postScore() {
       try {
         const response = await fetch(url.replace('{GAME_ID}', 'Zl4d7IVkemOTTVg2fUdz'), {
           method: 'POST',
-          body: JSON.stringify({ user: name, score: score }),
+          body: JSON.stringify({ user: name, score }),
           headers: {
             'Content-Type': 'application/json',
           },
