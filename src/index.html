@@ -19,10 +19,10 @@
                             <h2>Recent scores</h2>
                         </div>
                         <div class="col col-2 tbh2 d-flex">
-                            <button class="btn btn-light mt-auto mb-auto ms-auto">Refresh</button>
+                            <button id="refresh" class="btn btn-light mt-auto mb-auto ms-auto">Refresh</button>
                         </div>
-                        <div class="col tb col-12 mt-2 score">
-                            khjjhk
+                        <div class="col tb col-12 mt-2 score scrollspy-example">
+                            <ul id="leaderboard"></ul>
                         </div>
                     </div>
                 </div>
@@ -32,14 +32,14 @@
                             <h2>Add your score</h2>
                         </div>
                         <div class="col col-12  mt-5">
-                            <form>
+                            <form id="form">
                                 <div class="mb-4">
-                                  <label for="exampleInputEmail1" class="form-label" hidden>Email address</label>
-                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                  <label for="name" class="form-label" hidden>Your Name</label>
+                                  <input id="name" type="text" class="form-control" id="your-score" placeholder="Your name">
                                 </div>
                                 <div class="mb-4">
-                                  <label for="exampleInputPassword1" class="form-label" hidden>Password</label>
-                                  <input type="password" class="form-control" id="exampleInputPassword1">
+                                  <label for="score" class="form-label" hidden>Your Score</label>
+                                  <input id="score" type="number" class="form-control" id="your-name" placeholder="Your score">
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     <button type="submit" class="btn btn-outline-light">Submit</button>

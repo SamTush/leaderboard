@@ -44,6 +44,8 @@ body {
 
     .score {
       height: 400px;
+      overflow: scroll;
+      padding: 5px 10px;
     }
 
     font-family: 'Rubik', sans-serif;
