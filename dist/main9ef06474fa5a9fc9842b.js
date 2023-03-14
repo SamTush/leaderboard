@@ -2,20 +2,75 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/module/add.js":
-/*!***************************!*\
-  !*** ./src/module/add.js ***!
-  \***************************/
+/***/ "./src/module/refresh.js":
+/*!*******************************!*\
+  !*** ./src/module/refresh.js ***!
+  \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ getScore)
 /* harmony export */ });
-function print() {
-  console.log('Say hello there 123456789');
+function getScore() {
+  fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Zl4d7IVkemOTTVg2fUdz/scores/').then(response => response.json()).then(data => {
+    const leaderboard = document.getElementById('leaderboard');
+    data.result.forEach(score => {
+      const li = document.createElement('li');
+      li.textContent = `${score.user}: ${score.score}`;
+      leaderboard.appendChild(li);
+    });
+  }).catch(error => console.error(error));
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (print);
+
+/***/ }),
+
+/***/ "./src/module/submit.js":
+/*!******************************!*\
+  !*** ./src/module/submit.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "gameScores": () => (/* binding */ gameScores),
+/* harmony export */   "postScore": () => (/* binding */ postScore)
+/* harmony export */ });
+const gameScores = [];
+function postScore() {
+  const form = document.querySelector('#form');
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const name = document.querySelector('#name').value;
+    const score = document.querySelector('#score').value;
+    const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/{GAME_ID}/scores/';
+    async function postScore(name, score) {
+      try {
+        const response = await fetch(url.replace('{GAME_ID}', 'Zl4d7IVkemOTTVg2fUdz'), {
+          method: 'POST',
+          body: JSON.stringify({
+            user: name,
+            score
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json();
+        const id = data.result.match(/ID: (\S+)/)[1];
+        gameScores.push({
+          id,
+          name,
+          score
+        });
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    postScore(name, score);
+  });
+}
 
 /***/ }),
 
@@ -39,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Fredoka+One&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n  box-sizing: border-box;\n}\n\nbody {\n  background-color: #261132;\n  color: #fff;\n  padding: 20px 100px;\n  font-family: \"Fredoka One\", cursive;\n  font-weight: 600;\n}\nbody header h1 {\n  font-size: 3em;\n}\nbody section {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 300;\n  font-size: 1.1em;\n}\nbody section .tbh {\n  background-color: #7f69ab;\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n}\nbody section .tbh2 {\n  background-color: #7f69ab;\n  border-top-right-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\nbody section .tb {\n  background-color: #7f69ab;\n  border-radius: 4px;\n}\nbody section .score {\n  height: 400px;\n}\nbody section h2 {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 500;\n  font-size: 25px;\n  color: #fff;\n}\nbody section .btn {\n  background-color: #e19d05;\n  color: #fff;\n}\nbody section .btn:hover {\n  background-color: #6a5496;\n}\nbody footer img {\n  width: 100px;\n}\nbody footer .copyright {\n  font-family: \"Rubik\", sans-serif;\n  font-size: 12px;\n  font-weight: 500;\n  text-decoration: none;\n  color: #fff;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AASA;EACE,sBAAA;AAPF;;AAUA;EACE,yBAZc;EAad,WARe;EASf,mBAAA;EACA,mCAAA;EACA,gBAAA;AAPF;AAUI;EACE,cAAA;AARN;AAYE;EAsBE,gCAAA;EACA,gBAAA;EACA,gBAAA;AA/BJ;AAQI;EACE,yBAxBiB;EAyBjB,2BAAA;EACA,8BAAA;AANN;AASI;EACE,yBA9BiB;EA+BjB,4BAAA;EACA,+BAAA;AAPN;AAUI;EACE,yBApCiB;EAqCjB,kBAAA;AARN;AAWI;EACE,aAAA;AATN;AAgBI;EACE,gCAAA;EACA,gBAAA;EACA,eAAA;EACA,WAjDW;AAmCjB;AAiBI;EACE,yBAtDQ;EAuDR,WAtDW;AAuCjB;AAkBI;EACE,yBA9DgB;AA8CtB;AAqBI;EACE,YAAA;AAnBN;AAsBI;EACE,gCAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,WAxEW;AAoDjB","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\n\n$primary-color: #261132;\n$primary-color-light: #6a5496;\n$primary-color-medium: #7f69ab;\n$secondary-color: #93b7be;\n$logo-orange: #e19d05;\n$tertiary-color: #fff;\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  background-color: $primary-color;\n  color: $tertiary-color;\n  padding: 20px 100px;\n  font-family: 'Fredoka One', cursive;\n  font-weight: 600;\n\n  header {\n    h1 {\n      font-size: 3em;\n    }\n  }\n\n  section {\n    .tbh {\n      background-color: $primary-color-medium;\n      border-top-left-radius: 4px;\n      border-bottom-left-radius: 4px;\n    }\n\n    .tbh2 {\n      background-color: $primary-color-medium;\n      border-top-right-radius: 4px;\n      border-bottom-right-radius: 4px;\n    }\n\n    .tb {\n      background-color: $primary-color-medium;\n      border-radius: 4px;\n    }\n\n    .score {\n      height: 400px;\n    }\n\n    font-family: 'Rubik', sans-serif;\n    font-weight: 300;\n    font-size: 1.1em;\n\n    h2 {\n      font-family: 'Rubik', sans-serif;\n      font-weight: 500;\n      font-size: 25px;\n      color: $tertiary-color;\n    }\n\n    .btn {\n      background-color: $logo-orange;\n      color: $tertiary-color;\n    }\n\n    .btn:hover {\n      background-color: $primary-color-light;\n    }\n  }\n\n  footer {\n    img {\n      width: 100px;\n    }\n\n    .copyright {\n      font-family: 'Rubik', sans-serif;\n      font-size: 12px;\n      font-weight: 500;\n      text-decoration: none;\n      color: $tertiary-color;\n    }\n  }\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  box-sizing: border-box;\n}\n\nbody {\n  background-color: #261132;\n  color: #fff;\n  padding: 20px 100px;\n  font-family: \"Fredoka One\", cursive;\n  font-weight: 600;\n}\nbody header h1 {\n  font-size: 3em;\n}\nbody section {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 300;\n  font-size: 1.1em;\n}\nbody section .tbh {\n  background-color: #7f69ab;\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n}\nbody section .tbh2 {\n  background-color: #7f69ab;\n  border-top-right-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\nbody section .tb {\n  background-color: #7f69ab;\n  border-radius: 4px;\n}\nbody section .score {\n  height: 400px;\n  overflow: scroll;\n  padding: 5px 10px;\n}\nbody section h2 {\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 500;\n  font-size: 25px;\n  color: #fff;\n}\nbody section .btn {\n  background-color: #e19d05;\n  color: #fff;\n}\nbody section .btn:hover {\n  background-color: #6a5496;\n}\nbody footer img {\n  width: 100px;\n}\nbody footer .copyright {\n  font-family: \"Rubik\", sans-serif;\n  font-size: 12px;\n  font-weight: 500;\n  text-decoration: none;\n  color: #fff;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AASA;EACE,sBAAA;AAPF;;AAUA;EACE,yBAZc;EAad,WARe;EASf,mBAAA;EACA,mCAAA;EACA,gBAAA;AAPF;AAUI;EACE,cAAA;AARN;AAYE;EAwBE,gCAAA;EACA,gBAAA;EACA,gBAAA;AAjCJ;AAQI;EACE,yBAxBiB;EAyBjB,2BAAA;EACA,8BAAA;AANN;AASI;EACE,yBA9BiB;EA+BjB,4BAAA;EACA,+BAAA;AAPN;AAUI;EACE,yBApCiB;EAqCjB,kBAAA;AARN;AAWI;EACE,aAAA;EACA,gBAAA;EACA,iBAAA;AATN;AAgBI;EACE,gCAAA;EACA,gBAAA;EACA,eAAA;EACA,WAnDW;AAqCjB;AAiBI;EACE,yBAxDQ;EAyDR,WAxDW;AAyCjB;AAkBI;EACE,yBAhEgB;AAgDtB;AAqBI;EACE,YAAA;AAnBN;AAsBI;EACE,gCAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,WA1EW;AAsDjB","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\n\n$primary-color: #261132;\n$primary-color-light: #6a5496;\n$primary-color-medium: #7f69ab;\n$secondary-color: #93b7be;\n$logo-orange: #e19d05;\n$tertiary-color: #fff;\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  background-color: $primary-color;\n  color: $tertiary-color;\n  padding: 20px 100px;\n  font-family: 'Fredoka One', cursive;\n  font-weight: 600;\n\n  header {\n    h1 {\n      font-size: 3em;\n    }\n  }\n\n  section {\n    .tbh {\n      background-color: $primary-color-medium;\n      border-top-left-radius: 4px;\n      border-bottom-left-radius: 4px;\n    }\n\n    .tbh2 {\n      background-color: $primary-color-medium;\n      border-top-right-radius: 4px;\n      border-bottom-right-radius: 4px;\n    }\n\n    .tb {\n      background-color: $primary-color-medium;\n      border-radius: 4px;\n    }\n\n    .score {\n      height: 400px;\n      overflow: scroll;\n      padding: 5px 10px;\n    }\n\n    font-family: 'Rubik', sans-serif;\n    font-weight: 300;\n    font-size: 1.1em;\n\n    h2 {\n      font-family: 'Rubik', sans-serif;\n      font-weight: 500;\n      font-size: 25px;\n      color: $tertiary-color;\n    }\n\n    .btn {\n      background-color: $logo-orange;\n      color: $tertiary-color;\n    }\n\n    .btn:hover {\n      background-color: $primary-color-light;\n    }\n  }\n\n  footer {\n    img {\n      width: 100px;\n    }\n\n    .copyright {\n      font-family: 'Rubik', sans-serif;\n      font-size: 12px;\n      font-weight: 500;\n      text-decoration: none;\n      color: $tertiary-color;\n    }\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -647,16 +702,24 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _module_add_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/add.js */ "./src/module/add.js");
-/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
-/* harmony import */ var _assets_logo_orange_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/logo-orange.png */ "./src/assets/logo-orange.png");
+/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
+/* harmony import */ var _assets_logo_orange_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/logo-orange.png */ "./src/assets/logo-orange.png");
+/* harmony import */ var _module_submit_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./module/submit.js */ "./src/module/submit.js");
+/* harmony import */ var _module_refresh_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./module/refresh.js */ "./src/module/refresh.js");
 
 
 
+
+const refreshBtn = document.querySelector('#refresh');
 const logoImg = document.getElementById('logo');
-logoImg.setAttribute('src', _assets_logo_orange_png__WEBPACK_IMPORTED_MODULE_2__);
+logoImg.setAttribute('src', _assets_logo_orange_png__WEBPACK_IMPORTED_MODULE_1__);
+(0,_module_submit_js__WEBPACK_IMPORTED_MODULE_2__.postScore)();
+console.log(_module_submit_js__WEBPACK_IMPORTED_MODULE_2__.gameScores);
+refreshBtn.addEventListener('click', () => {
+  (0,_module_refresh_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
+});
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=mainafef0324acbbdd8ba00b.js.map
+//# sourceMappingURL=main9ef06474fa5a9fc9842b.js.map
