@@ -613,7 +613,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "start": "webpack --config webpack.config.js --watch"
   },
   "repository": {
     "type": "git",
