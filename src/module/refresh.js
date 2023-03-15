@@ -1,5 +1,5 @@
 export default function getScore() {
-  fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/WmudvVPIDvaXv4wz9i48/scores/`)
+  fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/WmudvVPIDvaXv4wz9i48/scores/')
     .then((response) => response.json())
     .then((data) => {
       console.log(data); // prints the leaderboard data
