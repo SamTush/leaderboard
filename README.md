@@ -40,7 +40,6 @@
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Built with HTML, SCSS & Bootstrap, JavaScript, webpack
 
 <details>
   <summary>HTML is used for the layout</summary>
@@ -73,25 +72,20 @@
 
 ### Key Features <a name="key-features"></a>
 
-> These are the key features of the application.
 
-- **[Submit data to leaderboard API]**
-- **[Get data from leaderboard API]**
+- **[Set up leaderboard]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
 
 - [Live Demo Link](https://samtush.github.io/leaderboard/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
-
-> This is how you could make use of this project.
 
 To get a local copy up and running, follow these steps.
 
@@ -110,12 +104,6 @@ To run the project, execute the following command:
 - install npm
 - install webpack
 
-### Run tests
-
-To run tests, run the following command:
-
-npm run dev
-
 ### Deployment
 
 You can deploy this project using:
@@ -127,7 +115,6 @@ github pages
 
 ## 👥 Authors <a name="authors"></a>
 
-> collaborators of this project.
 
 👤 **Samson**
 
@@ -137,7 +124,6 @@ github pages
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Features that will be added to the project.
 
 - [ ] **[Rank the top scorers]**
 
@@ -153,8 +139,6 @@ If you like this project, feel free to contribute.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
 I would like to thank microverse and anyone viewing this.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -163,7 +147,5 @@ I would like to thank microverse and anyone viewing this.
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
