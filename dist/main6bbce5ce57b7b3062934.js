@@ -2,23 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/module/add.js":
-/*!***************************!*\
-  !*** ./src/module/add.js ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function print() {
-  console.log('Say hello there 123456789');
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (print);
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss":
 /*!***********************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss ***!
@@ -647,16 +630,14 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _module_add_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/add.js */ "./src/module/add.js");
-/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
-/* harmony import */ var _assets_logo_orange_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/logo-orange.png */ "./src/assets/logo-orange.png");
-
+/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
+/* harmony import */ var _assets_logo_orange_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/logo-orange.png */ "./src/assets/logo-orange.png");
 
 
 const logoImg = document.getElementById('logo');
-logoImg.setAttribute('src', _assets_logo_orange_png__WEBPACK_IMPORTED_MODULE_2__);
+logoImg.setAttribute('src', _assets_logo_orange_png__WEBPACK_IMPORTED_MODULE_1__);
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=mainafef0324acbbdd8ba00b.js.map
+//# sourceMappingURL=main6bbce5ce57b7b3062934.js.map
