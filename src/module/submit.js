@@ -1,5 +1,4 @@
-export const gameScores = [];
-export function postScore() {
+export default function postScore() {
   const form = document.querySelector('#form');
 
   form.addEventListener('submit', (event) => {
@@ -12,7 +11,7 @@ export function postScore() {
 
     async function postScore(name, score) {
       try {
-        const response = await fetch(url.replace('{GAME_ID}', 'Zl4d7IVkemOTTVg2fUdz'), {
+        const response = await fetch(url.replace('{GAME_ID}', 'WmudvVPIDvaXv4wz9i48'), {
           method: 'POST',
           body: JSON.stringify({ user: name, score }),
           headers: {
@@ -20,8 +19,6 @@ export function postScore() {
           },
         });
         const data = await response.json();
-        const id = data.result.match(/ID: (\S+)/)[1];
-        gameScores.push({ id, name, score });
         console.log(data);
       } catch (error) {
         console.error(error);

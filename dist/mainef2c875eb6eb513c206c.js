@@ -33,10 +33,8 @@ function getScore() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "gameScores": () => (/* binding */ gameScores),
-/* harmony export */   "postScore": () => (/* binding */ postScore)
+/* harmony export */   "default": () => (/* binding */ postScore)
 /* harmony export */ });
-const gameScores = [];
 function postScore() {
   const form = document.querySelector('#form');
   form.addEventListener('submit', event => {
@@ -46,7 +44,7 @@ function postScore() {
     const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/{GAME_ID}/scores/';
     async function postScore(name, score) {
       try {
-        const response = await fetch(url.replace('{GAME_ID}', 'Zl4d7IVkemOTTVg2fUdz'), {
+        const response = await fetch(url.replace('{GAME_ID}', 'WmudvVPIDvaXv4wz9i48'), {
           method: 'POST',
           body: JSON.stringify({
             user: name,
@@ -57,12 +55,6 @@ function postScore() {
           }
         });
         const data = await response.json();
-        const id = data.result.match(/ID: (\S+)/)[1];
-        gameScores.push({
-          id,
-          name,
-          score
-        });
         console.log(data);
       } catch (error) {
         console.error(error);
@@ -713,8 +705,7 @@ __webpack_require__.r(__webpack_exports__);
 const refreshBtn = document.querySelector('#refresh');
 const logoImg = document.getElementById('logo');
 logoImg.setAttribute('src', _assets_logo_orange_png__WEBPACK_IMPORTED_MODULE_1__);
-(0,_module_submit_js__WEBPACK_IMPORTED_MODULE_2__.postScore)();
-console.log(_module_submit_js__WEBPACK_IMPORTED_MODULE_2__.gameScores);
+(0,_module_submit_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
 refreshBtn.addEventListener('click', () => {
   (0,_module_refresh_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
 });
@@ -722,4 +713,4 @@ refreshBtn.addEventListener('click', () => {
 
 /******/ })()
 ;
-//# sourceMappingURL=main9ef06474fa5a9fc9842b.js.map
+//# sourceMappingURL=mainef2c875eb6eb513c206c.js.map
