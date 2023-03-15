@@ -85,7 +85,7 @@
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://google.com)
+- [Live Demo Link](https://samtush.github.io/leaderboard/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,7 +101,7 @@ To get a local copy up and running, follow these steps.
 Clone this repository to your desired folder:
 
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone git@github.com:samtush/leaderboard.git
 
 ### Usage
 
