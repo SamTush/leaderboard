@@ -10,5 +10,6 @@ logoImg.setAttribute('src', logo);
 postScore();
 
 refreshBtn.addEventListener('click', () => {
+  document.querySelector('#leaderboard').innerHTML = '';
   getScore();
 });

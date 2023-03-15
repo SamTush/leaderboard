@@ -37,6 +37,10 @@ body {
       border-bottom-right-radius: 4px;
     }
 
+    .recent-score {
+      text-decoration: none;
+    }
+
     .tb {
       background-color: $primary-color-medium;
       border-radius: 4px;
@@ -76,7 +80,7 @@ body {
 
     .copyright {
       font-family: 'Rubik', sans-serif;
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 500;
       text-decoration: none;
       color: $tertiary-color;
