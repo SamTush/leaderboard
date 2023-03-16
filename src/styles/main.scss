@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$primary-color: #261132;
+$primary-color-light: #6a5496;
+$primary-color-medium: #7f69ab;
+$secondary-color: #93b7be;
+$logo-orange: #e19d05;
+$tertiary-color: #fff;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px 100px;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 600;
+
+  header {
+    h1 {
+      font-size: 3em;
+    }
+  }
+
+  section {
+    .tbh {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+
+    .tbh2 {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    .tb {
+      border-radius: 4px;
+    }
+
+    .score {
+      height: 400px;
+    }
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 1.1em;
+
+    h2 {
+      font-family: 'Rubik', sans-serif;
+      font-weight: 500;
+      font-size: 25px;
+    }
+  }
+
+  footer {
+    img {
+      width: 100px;
+    }
+
+    .copyright {
+      font-family: 'Rubik', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+}
