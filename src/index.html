@@ -10,6 +10,7 @@
     <header>
         <h1>leaderboard.</h1>
     </header>
+    
     <section>
         <div class="container-fliud mt-4">
             <div class="row">
@@ -19,16 +20,10 @@
                             <h2>Recent scores</h2>
                         </div>
                         <div class="col col-2 tbh2 d-flex">
-                            <button class="btn btn-light mt-auto mb-auto ms-auto">Refresh</button>
+                            <button id="refresh" class="btn btn-light mt-auto mb-auto ms-auto">Refresh</button>
                         </div>
-                        <div class="col tb col-12 mt-2 score">
-                            <ul>
-                                <li>Name: 100</li>
-                                <li>Name: 50</li>
-                                <li>Name: 20</li>
-                                <li>Name: 10</li>
-                                <li>Name: 70</li>
-                            </ul>
+                        <div class="col tb col-12 mt-2 score scrollspy-example">
+                            <ul id="leaderboard" class="recent-score pt-2 pb-2 ps-4"></ul>
                         </div>
                     </div>
                 </div>
@@ -37,18 +32,19 @@
                         <div class="col col-12 mt-3">
                             <h2>Add your score</h2>
                         </div>
+                        
                         <div class="col col-12  mt-5">
-                            <form>
+                            <form id="form">
                                 <div class="mb-4">
-                                  <label for="name" class="form-label" hidden>Your name</label>
-                                  <input type="text" class="form-control" id="yourName" placeholder="Your name" aria-describedby="yourName">
+                                  <label for="name" class="form-label" hidden>Your Name</label>
+                                  <input id="name" type="text" class="form-control" id="your-score" placeholder="Your name">
                                 </div>
                                 <div class="mb-4">
-                                    <label for="number" class="form-label" hidden>Your score</label>
-                                    <input type="number" class="form-control" id="yourScore" placeholder="Your score" aria-describedby="yourScore">
+                                  <label for="score" class="form-label" hidden>Your Score</label>
+                                  <input id="score" type="number" class="form-control" id="your-name" placeholder="Your score">
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                    <button type="submit" id="submit" class="btn btn-outline-light">Submit</button>
+                                    <button type="submit" class="btn btn-outline-light">Submit</button>
                                 </div>
                               </form>
                         </div>
@@ -57,6 +53,7 @@
             </div>
         </div>
     </section>
+
     <footer class="mt-5">
         <div class="container-fluid">
             <div class="row">
@@ -69,6 +66,7 @@
             </div>
         </div>
     </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
