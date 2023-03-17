@@ -4,7 +4,7 @@
   <img src="logo-orange.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>Leaderboard</b></h3>
+  <h1><b>Leaderboard</b></h1>
 
 </div>
 
@@ -73,7 +73,8 @@
 ### Key Features <a name="key-features"></a>
 
 
-- **[Set up leaderboard]**
+- **[Post name and score to API]**
+- **[Get name and score from API]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -93,10 +94,10 @@ To get a local copy up and running, follow these steps.
 ### Setup
 
 Clone this repository to your desired folder:
-
+```
   cd my-folder
   git clone git@github.com:samtush/leaderboard.git
-
+```
 ### Usage
 
 To run the project, execute the following command:
