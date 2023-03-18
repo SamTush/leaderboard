@@ -33,12 +33,18 @@ body {
       border-bottom-right-radius: 4px;
     }
 
+    .recent-score {
+      text-decoration: none;
+    }
+
     .tb {
       border-radius: 4px;
     }
 
     .score {
       height: 400px;
+      overflow: scroll;
+      padding: 5px 10px;
     }
 
     font-family: 'Rubik', sans-serif;
